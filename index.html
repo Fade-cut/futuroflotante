@@ -31,7 +31,7 @@
       init();
 
       let flag = true,
-        ceiling = 0.06;
+        ceiling = 0.03;
 
       animate();
       function init() {
@@ -152,7 +152,7 @@
         controls.maxPolarAngle = Math.PI * 0.495;
         controls.minPolarAngle = Math.PI * 0.495;
         controls.target.set(0, 10, 0);
-        controls.minDistance = 40.0;
+        controls.minDistance = 300;
         controls.maxDistance = 200.0;
         controls.update();
         //
@@ -195,27 +195,27 @@
 
       function render() {
              console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z);
-         camera.rotation._y = 0;
+         camera.rotation._y = 0.1;
 camera.rotation._z = 0;
 // camera.position.y = 2;
 // camera.position.z += -1;
-if (camera.rotation.x < -0.0009) {
+if (camera.rotation.x < -0.0001) {
  camera.rotation.x = 0;
 //camera.rotation.y --;
 }
 
 if (flag === true && camera.rotation.x <= ceiling) {
-  camera.rotation.x += 0.0004;
+  camera.rotation.x += 0.0001;
   // camera.position.y += 0.001;
   if (camera.rotation.x === ceiling) {
     flag = false;
   }
 } else {
   flag = false;
-  camera.rotation.x -= 0.0002;
+  camera.rotation.x -= 0.0001;
   // camera.position.y -= 0.001;
 
-  if (camera.rotation.x < -0.0004) {
+  if (camera.rotation.x < -0.0001) {
     flag = true;
     console.log(flag);
   }
@@ -224,7 +224,7 @@ if (flag === true && camera.rotation.x <= ceiling) {
         // sphere.position.y = Math.sin(time) * 20 + 5;
         // sphere.rotation.x = time * 0.5;
         // sphere.rotation.z = time * 0.51;
-        water.material.uniforms["time"].value += 1 / 60.0;
+        water.material.uniforms["time"].value += 0.45 / 60.0;
         renderer.render(scene, camera);
       }
     </script>
