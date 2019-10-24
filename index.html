@@ -28,7 +28,15 @@
       import { Water } from "./jsm/objects/Water.js";
       import { Sky } from "./jsm/objects/Sky.js";
 
-      let scene, stats, camera, renderer, light, water, plane, controls;
+      let scene,
+        stats,
+        camera,
+        renderer,
+        light,
+        water,
+        plane,
+        controls,
+        fogColor;
       init();
 
       let flag = true,
@@ -82,26 +90,10 @@
         water.rotation.x = -Math.PI / 2;
         scene.add(water);
 
-        console.log(scene);
+        let fogColor = new THREE.Color(0xffffff);
 
-        //   camera.position.z = 100;
-
-        // Plane
-
-        let getImage = () => {
-          var loader = new THREE.TextureLoader();
-          var texture = loader.load("textures/fitbit.jpeg");
-          var material = new THREE.MeshBasicMaterial({
-            map: texture,
-            side: THREE.DoubleSide,
-            opacity: 1
-          });
-          return material;
-        };
-        let planeGeometry = new THREE.PlaneGeometry(199, 72, 32);
-        plane = new THREE.Mesh(planeGeometry, getImage());
-
-        scene.add(plane);
+        scene.background = fogColor;
+        scene.fog = new THREE.FogExp2("#CCCCCC", 0.015);
 
         // Skybox
         var sky = new Sky();
