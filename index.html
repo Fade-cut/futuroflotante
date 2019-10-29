@@ -64,7 +64,7 @@
           20000
         );
         //   configure camera position
-        camera.position.set(30, 0, 100);
+        camera.position.set(30, 2, 100);
 
         //   add light
         light = new THREE.DirectionalLight(0xffffff, 0.8);
@@ -158,13 +158,17 @@
         // scene.add(sphere);
 
         //
+	/*	
         controls = new OrbitControls(camera, renderer.domElement);
-        controls.maxPolarAngle = Math.PI * 0.495;
-        controls.minPolarAngle = Math.PI * 0.495;
-        controls.target.set(0, 10, 0);
-        controls.minDistance = 300;
-        controls.maxDistance = 200.0;
+        //controls.maxPolarAngle = Math.PI * 0.495;
+        //controls.minPolarAngle = Math.PI * 0.495;
+        controls.target.set(0, 0, -0.01);
+		//controls.target.z -= 0.01;
+        //controls.minDistance = 0;
+        //controls.maxDistance = 200.0;
+		controls.rotateSpeed = 0.5;
         controls.update();
+*/		
         //
         // stats = new Stats();
         // container.appendChild(stats.dom);
@@ -186,7 +190,13 @@
         // folder.open();
 
         //
-
+		
+		camera.rotation.order = "YXZ";
+		camera.position.y = 2;
+		document.addEventListener( "mousemove", mouseMove, false );
+		document.addEventListener( "mousedown", mouseDown, false );
+		document.addEventListener( "mouseup", mouseUp, false );
+		
         onWindowResize();
         window.addEventListener("resize", onWindowResize, false);
       }
@@ -204,7 +214,9 @@
       }
 
       function render() {
-        console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z);
+        console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z);		
+		camera.position.y = 3 + Math.sin(Date.now() / 1000);
+
         // camera.rotation._y = 0.1;
         // camera.rotation._z = 0;
         // // camera.position.y = 2;
@@ -237,6 +249,36 @@
         water.material.uniforms["time"].value += 0.45 / 60.0;
         renderer.render(scene, camera);
       }
+	  
+
+var btnPress = false;
+var motion = {rotation: {x : 0, y: 0 }};
+
+function mouseUp( event ) {
+	if(event.button == 0) {
+		btnPress = false;
+	}
+}
+
+function mouseDown( event ) {
+	if(event.button == 0) {
+		btnPress = true;
+	}
+}
+
+
+function mouseMove( e ) {
+	if(btnPress) {
+		const movementX = e.movementX;
+
+		motion.rotation.y += -movementX * Math.PI / 180;
+
+		const euler = new THREE.Euler(0, 0, 0, 'YXZ');		//euler.x = motion.rotation.x;
+		euler.y = motion.rotation.y;
+		camera.quaternion.setFromEuler(euler);
+	}
+}
+
     </script>
   </body>
 </html>
