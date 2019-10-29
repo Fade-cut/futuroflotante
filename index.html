@@ -64,6 +64,7 @@
           20000
         );
         //   configure camera position
+	       camera.position.set(30, 2, 100);
        
 
         //   add light
@@ -109,7 +110,7 @@
           azimuth: 0.205
         };
 
-        const cubeCamera = new THREE.CubeCamera(0.1, 1, 512);
+        const cubeCamera = new THREE.CubeCamera(0.1, 100, 512);
         cubeCamera.renderTarget.texture.generateMipmaps = true;
         cubeCamera.renderTarget.texture.minFilter =
           THREE.LinearMipmapLinearFilter;
