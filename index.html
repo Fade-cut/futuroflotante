@@ -64,7 +64,7 @@
           20000
         );
         //   configure camera position
-        camera.position.set(30, 2, 100);
+        camera.position.set(30, 2, 0);
 
         //   add light
         light = new THREE.DirectionalLight(0xffffff, 0.8);
@@ -192,7 +192,7 @@
         //
 		
 		camera.rotation.order = "YXZ";
-		camera.position.y = 1;
+		camera.position.y = 2;
 		document.addEventListener( "mousemove", mouseMove, false );
 		document.addEventListener( "mousedown", mouseDown, false );
 		document.addEventListener( "mouseup", mouseUp, false );
