@@ -193,7 +193,7 @@
         //
 		
 		camera.rotation.order = "YXZ";
-		camera.position.y = 0;
+		camera.position.y = 2;
 		document.addEventListener( "mousemove", mouseMove, false );
 		document.addEventListener( "mousedown", mouseDown, false );
 		document.addEventListener( "mouseup", mouseUp, false );
@@ -247,7 +247,7 @@
         // sphere.position.y = Math.sin(time) * 20 + 5;
         // sphere.rotation.x = time * 0.5;
         // sphere.rotation.z = time * 0.51;
-        water.material.uniforms["time"].value += 0.45 / 60.0;
+        water.material.uniforms["time"].value += 0.25 / 60.0;
         renderer.render(scene, camera);
       }
 	  
