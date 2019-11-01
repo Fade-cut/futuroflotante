@@ -81,14 +81,14 @@
               texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
             }
           ),
-          alpha: 1.0,
+          alpha: 0,
           sunDirection: light.position.clone().normalize(),
           sunColor: 0x9a98a4,
           waterColor: 0x000000,
           distortionScale: 5.7,
           fog: scene.fog !== undefined
         });
-        water.rotation.x = -Math.PI / 5;
+        water.rotation.x = -Math.PI / 2;
         scene.add(water);
 
         // let fogColor = new THREE.Color(0xffffff);
