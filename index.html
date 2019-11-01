@@ -97,14 +97,20 @@
         // scene.fog = new THREE.FogExp2("#ffffff", 0.0060);
 
         // Skybox
-        
+        var sky = new Sky();
+        var uniforms = sky.material.uniforms;
+        uniforms["turbidity"].value = 1;
+        uniforms["rayleigh"].value = 0.4;
+        uniforms["luminance"].value = 0.9;
+        uniforms["mieCoefficient"].value = 0.005;
+        uniforms["mieDirectionalG"].value = 0.8;
+        var parameters = {
+          distance: 200,
+          inclination: 2.49,
+          azimuth: 0.205
         };
 
-        const cubeCamera = new THREE.CubeCamera(0.1, 100, 512);
-        cubeCamera.renderTarget.texture.generateMipmaps = true;
-        cubeCamera.renderTarget.texture.minFilter =
-          THREE.LinearMipmapLinearFilter;
-        scene.background = cubeCamera.renderTarget;
+        
 
         function updateSun() {
           var theta = Math.PI * (parameters.inclination - 1);
