@@ -193,7 +193,7 @@
         //
 		
 		camera.rotation.order = "YXZ";
-		camera.position.y = 6;
+		camera.position.y = 2;
 		document.addEventListener( "mousemove", mouseMove, false );
 		document.addEventListener( "mousedown", mouseDown, false );
 		document.addEventListener( "mouseup", mouseUp, false );
@@ -216,7 +216,7 @@
 
       function render() {
         console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z);		
-		camera.position.y = 3 + Math.sin(Date.now() / 2000);
+		camera.position.y = 7 + Math.sin(Date.now() / 2000);
 
         // camera.rotation._y = 0.1;
         // camera.rotation._z = 0;
