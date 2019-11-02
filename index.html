@@ -218,11 +218,11 @@
       }
 
       var upDownVelocity = 0.5; // controls how fast it goes up and down - the smaller
-      var upDownRange = 0.4; // controls up and down range of motion - the smaller it is the less it will move up and down
+      var upDownRange = 0.5; // controls up and down range of motion - the smaller it is the less it will move up and down
 
       function render() {
         console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z);		
-		camera.position.y = 2 + Math.sin(Date.now() / 1000* upDownVelocity) * upDownRange;
+		camera.position.y = 4 + Math.sin(Date.now() / 1000* upDownVelocity) * upDownRange;
 
         // camera.rotation._y = 0.1;
         // camera.rotation._z = 0;
