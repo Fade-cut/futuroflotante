@@ -192,7 +192,7 @@
         //
 		
 		camera.rotation.order = "YXZ";
-		camera.position.y = 6;
+		camera.position.y = 5;
 		document.addEventListener( "mousemove", mouseMove, false );
 		document.addEventListener( "mousedown", mouseDown, false );
 		document.addEventListener( "mouseup", mouseUp, false );
@@ -217,12 +217,12 @@
         //stats.update();
       }
 
-      var upDownVelocity = 0.8; // controls how fast it goes up and down - the smaller
-      var upDownRange = 0.5; // controls up and down range of motion - the smaller it is the less it will move up and down
+      var upDownVelocity = 0.9; // controls how fast it goes up and down - the smaller
+      var upDownRange = 0.6; // controls up and down range of motion - the smaller it is the less it will move up and down
 
       function render() {
         console.log(camera.rotation.x, camera.rotation.y, camera.rotation.z);		
-		camera.position.y = 6 + Math.sin(Date.now() / 1000* upDownVelocity) * upDownRange;
+		camera.position.y =5 + Math.sin(Date.now() / 1000* upDownVelocity) * upDownRange;
 
         // camera.rotation._y = 0.1;
         // camera.rotation._z = 0;
