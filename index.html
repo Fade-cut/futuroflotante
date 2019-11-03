@@ -200,7 +200,7 @@
       //
 
       camera.rotation.order = "YXZ";
-      camera.position.y = 2;
+      camera.position.y = 6;
       document.addEventListener("mousemove", mouseMove, false);
       document.addEventListener("mousedown", mouseDown, false);
       document.addEventListener("mouseup", mouseUp, false);
@@ -233,7 +233,7 @@
       euler.y = motion.rotation.y;
       camera.quaternion.setFromEuler(euler);
 
-      camera.position.y = 2 + s * upDownRange;
+      camera.position.y = 6 + s * upDownRange;
 
       // camera.rotation._y = 0.1;
       // camera.rotation._z = 0;
