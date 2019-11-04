@@ -40,8 +40,8 @@
       controls,
       fogColor;
 
-    var upDownVelocity = 0.2; // controls how fast it goes up and down - the smaller
-    var upDownRange = 1; // controls up and down range of motion - the smaller it is the less it will move up and down
+    var upDownVelocity = 0.7; // controls how fast it goes up and down - the smaller
+    var upDownRange = 0.1; // controls up and down range of motion - the smaller it is the less it will move up and down
     var motion = { rotation: { x: 0, y: 0 } };
 
     init();
@@ -91,7 +91,7 @@
         alpha: 1.0,
         sunDirection: light.position.clone().normalize(),
         sunColor: 0x9a98a4,
-        waterColor: 0x000000,
+        waterColor: 0x00008b,
         distortionScale: 3.7,
         fog: scene.fog !== undefined
       });
@@ -200,7 +200,7 @@
       //
 
       camera.rotation.order = "YXZ";
-      camera.position.y = 2;
+      camera.position.y = 4;
       document.addEventListener("mousemove", mouseMove, false);
       document.addEventListener("mousedown", mouseDown, false);
       document.addEventListener("mouseup", mouseUp, false);
@@ -233,7 +233,7 @@
       euler.y = motion.rotation.y;
       camera.quaternion.setFromEuler(euler);
 
-      camera.position.y = 2 + s * upDownRange;
+      camera.position.y = 4 + s * upDownRange;
 
       // camera.rotation._y = 0.1;
       // camera.rotation._z = 0;
